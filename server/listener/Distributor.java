@@ -6,12 +6,15 @@ import java.util.concurrent.Executors;
 
 public class Distributor {
 
+	private ExecutorService threadpool;
+	
 	public Distributor() {
-		ExecutorService threadpool = Executors.newCachedThreadPool();
+		threadpool = Executors.newCachedThreadPool();
 		
 	}
 	
 	public void handleConnection ( Socket client ) {
-		
+		ConnectionHandler handler = new ConnectionHandler(client);
+		threadpool.execute(handler);
 	}
 }

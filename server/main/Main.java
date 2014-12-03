@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import listener.Listener;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -19,7 +21,8 @@ public class Main {
 			}
 		}
 		
-		//TODO threadpool aufbauen
+		Thread listener = new Thread( new Listener());
+		listener.start();
 	}
 
 }

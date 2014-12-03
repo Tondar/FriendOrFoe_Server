@@ -25,7 +25,8 @@ public class Listener implements Runnable{
 				client = server.accept();
 				distributor.handleConnection(client);	
 			} catch (IOException e) {
-				
+				// TODO handle exception
+				e.printStackTrace();
 			} finally {
 				if (client != null) {
 					try {
